@@ -6,240 +6,1260 @@
   <meta name="theme-color" content="#070707">
   <meta name="description" content="Biker Sonu — Duke 250 Gen 3 rider, content creator and city rider.">
   <title>Biker Sonu | 25T Rider</title>
+
   <style>
-    :root{
-      --red:#e50914;
-      --red2:#ff3b30;
-      --black:#050505;
-      --card:#101010;
-      --text:#f5f5f5;
-      --muted:#a7a7a7;
-      --line:rgba(255,255,255,.10);
+    :root {
+      --red: #e50914;
+      --red2: #ff3b30;
+      --black: #050505;
+      --card: #101010;
+      --text: #f5f5f5;
+      --muted: #a7a7a7;
+      --line: rgba(255,255,255,.10);
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      background:var(--black);
-      color:var(--text);
-      font-family:Arial,Helvetica,sans-serif;
-      overflow-x:hidden;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    a{text-decoration:none;color:inherit}
-    .noise{
-      position:fixed;inset:0;pointer-events:none;opacity:.035;z-index:50;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+
+    html {
+      scroll-behavior: smooth;
     }
-    header{
-      position:fixed;top:0;left:0;right:0;z-index:40;
-      display:flex;align-items:center;justify-content:space-between;
-      padding:18px 6%;
-      background:linear-gradient(to bottom,rgba(0,0,0,.88),transparent);
-      transition:.3s;
+
+    body {
+      background: var(--black);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
     }
-    header.scrolled{background:rgba(5,5,5,.92);backdrop-filter:blur(12px)}
-    .logo{font-weight:900;letter-spacing:1px;font-size:20px}
-    .logo span{color:var(--red)}
-    nav{display:flex;gap:25px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
-    nav a{opacity:.8;transition:.2s}
-    nav a:hover{color:var(--red);opacity:1}
-    .menu{display:none;background:none;border:1px solid var(--line);color:white;padding:8px 10px;border-radius:8px}
 
-    .hero{
-      min-height:100vh;display:grid;place-items:end start;
-      position:relative;overflow:hidden;
-      background:#050505;
+    a {
+      text-decoration: none;
+      color: inherit;
     }
-    .hero:before{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.48) 48%,rgba(0,0,0,.18) 100%),
-                 linear-gradient(0deg,#050505 0%,transparent 35%);
-      z-index:1;
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .035;
+      z-index: 50;
+
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
     }
-    .hero-img{
-      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-      object-position:center 45%;filter:saturate(.95) contrast(1.08);
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 18px 6%;
+
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,.88),
+        transparent
+      );
+
+      transition: .3s;
     }
-    .hero-content{position:relative;z-index:2;padding:0 6% 10vh;max-width:760px}
-    .eyebrow{color:var(--red);font-weight:900;letter-spacing:4px;font-size:12px;text-transform:uppercase;margin-bottom:15px}
-    h1{font-size:clamp(52px,10vw,110px);line-height:.86;text-transform:uppercase;font-weight:1000;letter-spacing:-5px}
-    h1 span{color:var(--red)}
-    .hero p{margin-top:24px;color:#d4d4d4;font-size:17px;line-height:1.7;max-width:620px}
-    .buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-    .btn{padding:14px 20px;border-radius:5px;font-weight:900;text-transform:uppercase;letter-spacing:.7px;font-size:12px;border:1px solid var(--line);transition:.25s}
-    .btn.red{background:var(--red);border-color:var(--red)}
-    .btn.red:hover{background:#ff2530;transform:translateY(-2px)}
-    .btn.dark{background:rgba(255,255,255,.07);backdrop-filter:blur(8px)}
-    .btn.dark:hover{border-color:var(--red);color:#fff}
 
-    section{padding:95px 6%;position:relative}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:42px}
-    .section-kicker{color:var(--red);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase}
-    h2{font-size:clamp(32px,5vw,58px);text-transform:uppercase;letter-spacing:-2px;margin-top:7px}
-    .section-head p{color:var(--muted);max-width:420px;line-height:1.6}
+    header.scrolled {
+      background: rgba(5,5,5,.92);
+      backdrop-filter: blur(12px);
+    }
 
-    .about{display:grid;grid-template-columns:1fr 1.15fr;gap:55px;align-items:center}
-    .portrait{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
-    .portrait img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;object-position:center 38%}
-    .portrait:after{content:"25T";position:absolute;right:18px;bottom:14px;font-size:70px;font-weight:1000;color:rgba(255,255,255,.08)}
-    .about-copy p{color:#c8c8c8;line-height:1.85;margin:18px 0}
-    .quote{border-left:3px solid var(--red);padding:13px 18px;background:rgba(229,9,20,.06);font-weight:700}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px}
-    .stat{padding:18px;background:var(--card);border:1px solid var(--line);border-radius:8px}
-    .stat b{font-size:24px}.stat span{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;margin-top:5px}
+    .logo {
+      font-weight: 900;
+      letter-spacing: 1px;
+      font-size: 20px;
+    }
 
-    .bike-section{background:linear-gradient(180deg,#050505,#0a0a0a,#050505)}
-    .bike-card{display:grid;grid-template-columns:1.2fr .8fr;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
-    .bike-card img{width:100%;height:100%;min-height:520px;object-fit:cover;object-position:center}
-    .bike-info{padding:45px;display:flex;flex-direction:column;justify-content:center}
-    .bike-name{font-size:clamp(35px,5vw,62px);font-weight:1000;text-transform:uppercase;line-height:.95}
-    .bike-name span{color:var(--red)}
-    .specs{margin:30px 0;display:grid;gap:1px}
-    .spec{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line);font-size:14px}
-    .spec span{color:var(--muted)}
+    .logo span {
+      color: var(--red);
+    }
 
-    .rides{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .ride{min-height:230px;border:1px solid var(--line);border-radius:10px;padding:25px;display:flex;flex-direction:column;justify-content:end;background:linear-gradient(145deg,#171717,#090909);position:relative;overflow:hidden}
-    .ride:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-35px;top:-35px;background:var(--red);opacity:.12;filter:blur(2px)}
-    .ride b{font-size:20px;text-transform:uppercase;position:relative}
-    .ride p{color:var(--muted);font-size:13px;line-height:1.6;margin-top:7px;position:relative}
+    nav {
+      display: flex;
+      gap: 25px;
 
-    .social{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .social-card{padding:30px;border:1px solid var(--line);background:var(--card);border-radius:10px;display:flex;align-items:center;justify-content:space-between;transition:.25s}
-    .social-card:hover{transform:translateY(-4px);border-color:var(--red)}
-    .social-card strong{font-size:20px}
-    .social-card small{display:block;color:var(--muted);margin-top:5px}
-    .arrow{font-size:25px;color:var(--red)}
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-    footer{padding:40px 6%;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:12px}
-    footer b{color:white}
-    .redline{height:2px;background:linear-gradient(90deg,var(--red),transparent);width:100%;opacity:.8}
+    nav a {
+      opacity: .8;
+      transition: .2s;
+    }
 
-    @media(max-width:800px){
-      nav{display:none;position:absolute;top:70px;right:6%;background:#101010;border:1px solid var(--line);padding:18px;border-radius:10px;flex-direction:column;gap:18px;width:180px}
-      nav.open{display:flex}.menu{display:block}
-      .about,.bike-card{grid-template-columns:1fr}
-      .bike-card img{min-height:360px}
-      .bike-info{padding:30px}
-      .rides{grid-template-columns:1fr}
-      .social{grid-template-columns:1fr}
-      .section-head{display:block}
-      .section-head p{margin-top:15px}
-      footer{display:block} footer div+div{margin-top:10px}
+    nav a:hover {
+      color: var(--red);
+      opacity: 1;
+    }
+
+    .menu {
+      display: none;
+
+      background: none;
+      border: 1px solid var(--line);
+      color: white;
+
+      padding: 8px 10px;
+      border-radius: 8px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: grid;
+      place-items: end start;
+
+      position: relative;
+      overflow: hidden;
+
+      background: #050505;
+    }
+
+    .hero:before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.88) 0%,
+          rgba(0,0,0,.48) 48%,
+          rgba(0,0,0,.18) 100%
+        ),
+        linear-gradient(
+          0deg,
+          #050505 0%,
+          transparent 35%
+        );
+
+      z-index: 1;
+    }
+
+    /* FIXED IMAGE PATH */
+    .hero-img {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+      object-position: center 45%;
+
+      filter: saturate(.95) contrast(1.08);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      padding: 0 6% 10vh;
+
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      color: var(--red);
+
+      font-weight: 900;
+      letter-spacing: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(52px, 10vw, 110px);
+      line-height: .86;
+
+      text-transform: uppercase;
+      font-weight: 1000;
+
+      letter-spacing: -5px;
+    }
+
+    h1 span {
+      color: var(--red);
+    }
+
+    .hero p {
+      margin-top: 24px;
+
+      color: #d4d4d4;
+
+      font-size: 17px;
+      line-height: 1.7;
+
+      max-width: 620px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+      margin-top: 28px;
+    }
+
+    .btn {
+      padding: 14px 20px;
+
+      border-radius: 5px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+      letter-spacing: .7px;
+
+      font-size: 12px;
+
+      border: 1px solid var(--line);
+
+      transition: .25s;
+    }
+
+    .btn.red {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .btn.red:hover {
+      background: #ff2530;
+      transform: translateY(-2px);
+    }
+
+    .btn.dark {
+      background: rgba(255,255,255,.07);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn.dark:hover {
+      border-color: var(--red);
+      color: #fff;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    section {
+      padding: 95px 6%;
+      position: relative;
+    }
+
+    .section-head {
+      display: flex;
+
+      justify-content: space-between;
+      align-items: end;
+
+      gap: 30px;
+
+      margin-bottom: 42px;
+    }
+
+    .section-kicker {
+      color: var(--red);
+
+      font-size: 11px;
+      font-weight: 900;
+
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 58px);
+
+      text-transform: uppercase;
+      letter-spacing: -2px;
+
+      margin-top: 7px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+
+      max-width: 420px;
+
+      line-height: 1.6;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      display: grid;
+
+      grid-template-columns: 1fr 1.15fr;
+
+      gap: 55px;
+
+      align-items: center;
+    }
+
+    .portrait {
+      position: relative;
+
+      border-radius: 12px;
+
+      overflow: hidden;
+
+      border: 1px solid var(--line);
+    }
+
+    .portrait img {
+      width: 100%;
+
+      display: block;
+
+      aspect-ratio: 4/5;
+
+      object-fit: cover;
+      object-position: center 38%;
+    }
+
+    .portrait:after {
+      content: "25T";
+
+      position: absolute;
+
+      right: 18px;
+      bottom: 14px;
+
+      font-size: 70px;
+
+      font-weight: 1000;
+
+      color: rgba(255,255,255,.08);
+    }
+
+    .about-copy p {
+      color: #c8c8c8;
+
+      line-height: 1.85;
+
+      margin: 18px 0;
+    }
+
+    .quote {
+      border-left: 3px solid var(--red);
+
+      padding: 13px 18px;
+
+      background: rgba(229,9,20,.06);
+
+      font-weight: 700;
+    }
+
+    .stats {
+      display: grid;
+
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 12px;
+
+      margin-top: 25px;
+    }
+
+    .stat {
+      padding: 18px;
+
+      background: var(--card);
+
+      border: 1px solid var(--line);
+
+      border-radius: 8px;
+    }
+
+    .stat b {
+      font-size: 24px;
+    }
+
+    .stat span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      text-transform: uppercase;
+
+      margin-top: 5px;
+    }
+
+    /* =========================
+       BIKE
+    ========================= */
+
+    .bike-section {
+      background:
+        linear-gradient(
+          180deg,
+          #050505,
+          #0a0a0a,
+          #050505
+        );
+    }
+
+    .bike-card {
+      display: grid;
+
+      grid-template-columns: 1.2fr .8fr;
+
+      background: var(--card);
+
+      border: 1px solid var(--line);
+
+      border-radius: 14px;
+
+      overflow: hidden;
+    }
+
+    .bike-card img {
+      width: 100%;
+      height: 100%;
+
+      min-height: 520px;
+
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .bike-info {
+      padding: 45px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+    }
+
+    .bike-name {
+      font-size: clamp(35px,5vw,62px);
+
+      font-weight: 1000;
+
+      text-transform: uppercase;
+
+      line-height: .95;
+    }
+
+    .bike-name span {
+      color: var(--red);
+    }
+
+    .specs {
+      margin: 30px 0;
+
+      display: grid;
+
+      gap: 1px;
+    }
+
+    .spec {
+      display: flex;
+
+      justify-content: space-between;
+
+      padding: 15px 0;
+
+      border-bottom: 1px solid var(--line);
+
+      font-size: 14px;
+    }
+
+    .spec span {
+      color: var(--muted);
+    }
+
+    /* =========================
+       RIDES
+    ========================= */
+
+    .rides {
+      display: grid;
+
+      grid-template-columns: repeat(3,1fr);
+
+      gap: 16px;
+    }
+
+    .ride {
+      min-height: 230px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 10px;
+
+      padding: 25px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: end;
+
+      background:
+        linear-gradient(
+          145deg,
+          #171717,
+          #090909
+        );
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .ride:before {
+      content: "";
+
+      position: absolute;
+
+      width: 130px;
+      height: 130px;
+
+      border-radius: 50%;
+
+      right: -35px;
+      top: -35px;
+
+      background: var(--red);
+
+      opacity: .12;
+
+      filter: blur(2px);
+    }
+
+    .ride b {
+      font-size: 20px;
+
+      text-transform: uppercase;
+
+      position: relative;
+    }
+
+    .ride p {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      margin-top: 7px;
+
+      position: relative;
+    }
+
+    /* =========================
+       SOCIAL
+    ========================= */
+
+    .social {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 16px;
+    }
+
+    .social-card {
+      padding: 30px;
+
+      border: 1px solid var(--line);
+
+      background: var(--card);
+
+      border-radius: 10px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      transition: .25s;
+    }
+
+    .social-card:hover {
+      transform: translateY(-4px);
+
+      border-color: var(--red);
+    }
+
+    .social-card strong {
+      font-size: 20px;
+    }
+
+    .social-card small {
+      display: block;
+
+      color: var(--muted);
+
+      margin-top: 5px;
+    }
+
+    .arrow {
+      font-size: 25px;
+
+      color: var(--red);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 40px 6%;
+
+      border-top: 1px solid var(--line);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+    }
+
+    footer b {
+      color: white;
+    }
+
+    .redline {
+      height: 2px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--red),
+          transparent
+        );
+
+      width: 100%;
+
+      opacity: .8;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:800px) {
+
+      nav {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+        right: 6%;
+
+        background: #101010;
+
+        border: 1px solid var(--line);
+
+        padding: 18px;
+
+        border-radius: 10px;
+
+        flex-direction: column;
+
+        gap: 18px;
+
+        width: 180px;
+      }
+
+      nav.open {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .about,
+      .bike-card {
+        grid-template-columns: 1fr;
+      }
+
+      .bike-card img {
+        min-height: 360px;
+      }
+
+      .bike-info {
+        padding: 30px;
+      }
+
+      .rides {
+        grid-template-columns: 1fr;
+      }
+
+      .social {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 15px;
+      }
+
+      footer {
+        display: block;
+      }
+
+      footer div + div {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
+
 <body>
-<div class="noise"></div>
 
-<header id="header">
-  <a class="logo" href="#home">BIKER<span>SONU</span><small style="font-size:9px;display:block;color:#777;letter-spacing:2px">25T RIDER</small></a>
-  <button class="menu" id="menu">MENU</button>
-  <nav id="nav">
-    <a href="#about">About</a>
-    <a href="#bike">My Bike</a>
-    <a href="#rides">Rides</a>
-    <a href="#social">Social</a>
-  </nav>
-</header>
+  <div class="noise"></div>
 
-<main>
-  <section class="hero" id="home">
-    <img class="hero-img" src="assets/bike.jpg" alt="Biker Sonu's KTM Duke 250">
-    <div class="hero-content">
-      <div class="eyebrow">KTM Duke 250 • 25T Rider</div>
-      <h1>RIDE.<br><span>CREATE.</span><br>REPEAT.</h1>
-      <p>I'm Sonu — a small content creator, city rider and motorcycle enthusiast. Every Sunday, I ride with my group, explore new places and capture the journey.</p>
-      <div class="buttons">
-        <a class="btn red" href="#bike">Explore My Bike</a>
-        <a class="btn dark" target="_blank" rel="noopener" href="https://www.instagram.com/biker_sonu_0k?stkn=dnE2YWhzdTdyY2dv">Instagram ↗</a>
-      </div>
-    </div>
-  </section>
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-  <section id="about">
-    <div class="section-head">
-      <div><div class="section-kicker">01 / Rider</div><h2>Meet Sonu</h2></div>
-      <p>Not just a bike. It's the machine behind the memories, edits and Sunday rides.</p>
-    </div>
-    <div class="about">
-      <div class="portrait"><img src="assets/sonu.jpg" alt="Sonu with his motorcycle"></div>
-      <div class="about-copy">
-        <div class="quote">“My dream is to make my bike look more attractive, unique and memorable.”</div>
-        <p>So hello, bikers! I’m <b>SONU</b>, a 25T rider and a small content creator. I love motorcycles, photography and creating moments around my bike.</p>
-        <p>Every Sunday, I go on city rides with my group. I haven't covered a long-distance ride yet, but I've already explored almost all the popular and amazing places around my city.</p>
-        <div class="stats">
-          <div class="stat"><b>01</b><span>Bike</span></div>
-          <div class="stat"><b>Sun</b><span>Ride Day</span></div>
-          <div class="stat"><b>∞</b><span>Dream Rides</span></div>
+  <header id="header">
+
+    <a class="logo" href="#home">
+      BIKER<span>SONU</span>
+
+      <small
+        style="
+          font-size:9px;
+          display:block;
+          color:#777;
+          letter-spacing:2px;
+        "
+      >
+        25T RIDER
+      </small>
+    </a>
+
+    <button class="menu" id="menu">
+      MENU
+    </button>
+
+    <nav id="nav">
+      <a href="#about">About</a>
+      <a href="#bike">My Bike</a>
+      <a href="#rides">Rides</a>
+      <a href="#social">Social</a>
+    </nav>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero" id="home">
+
+      <!-- FIXED: bike.jpg is in repository root -->
+      <img
+        class="hero-img"
+        src="bike.jpg"
+        alt="Biker Sonu's KTM Duke 250"
+      >
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          KTM Duke 250 • 25T Rider
         </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="bike-section" id="bike">
-    <div class="section-head">
-      <div><div class="section-kicker">02 / Machine</div><h2>My Weapon</h2></div>
-      <p>A sharp, aggressive street-machine setup with the attitude of a true Duke.</p>
-    </div>
-    <div class="bike-card">
-      <img src="assets/bike.jpg" alt="KTM Duke 250 Gen 3">
-      <div class="bike-info">
-        <div class="bike-name">KTM<br><span>DUKE 250</span></div>
-        <div class="specs">
-          <div class="spec"><span>Generation</span><b>Gen 3</b></div>
-          <div class="spec"><span>Category</span><b>Naked Street</b></div>
-          <div class="spec"><span>Rider</span><b>Biker Sonu</b></div>
-          <div class="spec"><span>Theme</span><b>Red × Black</b></div>
+        <h1>
+          RIDE.<br>
+          <span>CREATE.</span><br>
+          REPEAT.
+        </h1>
+
+        <p>
+          I'm Sonu — a small content creator, city rider
+          and motorcycle enthusiast. Every Sunday, I ride
+          with my group, explore new places and capture
+          the journey.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            class="btn red"
+            href="#bike"
+          >
+            Explore My Bike
+          </a>
+
+          <a
+            class="btn dark"
+            target="_blank"
+            rel="noopener"
+            href="https://www.instagram.com/biker_sonu_0k?stkn=dnE2YWhzdTdyY2dv"
+          >
+            Instagram ↗
+          </a>
+
         </div>
-        <a class="btn red" href="#social">Follow The Ride</a>
+
       </div>
-    </div>
-  </section>
 
-  <section id="rides">
-    <div class="section-head">
-      <div><div class="section-kicker">03 / Lifestyle</div><h2>Sunday Rides</h2></div>
-      <p>City roads today. Long-distance adventures tomorrow.</p>
-    </div>
-    <div class="rides">
-      <div class="ride"><b>City Explorer</b><p>Discovering the best and most popular spots around the city.</p></div>
-      <div class="ride"><b>Group Rides</b><p>Every Sunday, riding with the crew and making memories.</p></div>
-      <div class="ride"><b>Next Chapter</b><p>Long-distance rides are still on the dream list — coming soon.</p></div>
-    </div>
-  </section>
+    </section>
 
-  <section id="social" style="padding-top:55px">
-    <div class="section-head">
-      <div><div class="section-kicker">04 / Connect</div><h2>Follow The Journey</h2></div>
-      <p>More rides, edits and motorcycle content are waiting on social media.</p>
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section id="about">
+
+      <div class="section-head">
+
+        <div>
+          <div class="section-kicker">
+            01 / Rider
+          </div>
+
+          <h2>
+            Meet Sonu
+          </h2>
+        </div>
+
+        <p>
+          Not just a bike. It's the machine behind
+          the memories, edits and Sunday rides.
+        </p>
+
+      </div>
+
+
+      <div class="about">
+
+        <div class="portrait">
+
+          <!-- FIXED: sonu.jpg is in repository root -->
+          <img
+            src="sonu.jpg"
+            alt="Sonu with his motorcycle"
+          >
+
+        </div>
+
+
+        <div class="about-copy">
+
+          <div class="quote">
+            “My dream is to make my bike look more
+            attractive, unique and memorable.”
+          </div>
+
+          <p>
+            So hello, bikers! I’m <b>SONU</b>, a 25T rider
+            and a small content creator. I love motorcycles,
+            photography and creating moments around my bike.
+          </p>
+
+          <p>
+            Every Sunday, I go on city rides with my group.
+            I haven't covered a long-distance ride yet,
+            but I've already explored almost all the popular
+            and amazing places around my city.
+          </p>
+
+
+          <div class="stats">
+
+            <div class="stat">
+              <b>01</b>
+              <span>Bike</span>
+            </div>
+
+            <div class="stat">
+              <b>Sun</b>
+              <span>Ride Day</span>
+            </div>
+
+            <div class="stat">
+              <b>∞</b>
+              <span>Dream Rides</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BIKE
+    ========================= -->
+
+    <section
+      class="bike-section"
+      id="bike"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            02 / Machine
+          </div>
+
+          <h2>
+            My Weapon
+          </h2>
+
+        </div>
+
+        <p>
+          A sharp, aggressive street-machine setup
+          with the attitude of a true Duke.
+        </p>
+
+      </div>
+
+
+      <div class="bike-card">
+
+        <!-- FIXED: bike.jpg is in repository root -->
+        <img
+          src="bike.jpg"
+          alt="KTM Duke 250 Gen 3"
+        >
+
+
+        <div class="bike-info">
+
+          <div class="bike-name">
+            KTM<br>
+            <span>DUKE 250</span>
+          </div>
+
+
+          <div class="specs">
+
+            <div class="spec">
+              <span>Generation</span>
+              <b>Gen 3</b>
+            </div>
+
+            <div class="spec">
+              <span>Category</span>
+              <b>Naked Street</b>
+            </div>
+
+            <div class="spec">
+              <span>Rider</span>
+              <b>Biker Sonu</b>
+            </div>
+
+            <div class="spec">
+              <span>Theme</span>
+              <b>Red × Black</b>
+            </div>
+
+          </div>
+
+
+          <a
+            class="btn red"
+            href="#social"
+          >
+            Follow The Ride
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RIDES
+    ========================= -->
+
+    <section id="rides">
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            03 / Lifestyle
+          </div>
+
+          <h2>
+            Sunday Rides
+          </h2>
+
+        </div>
+
+        <p>
+          City roads today. Long-distance adventures tomorrow.
+        </p>
+
+      </div>
+
+
+      <div class="rides">
+
+        <div class="ride">
+
+          <b>
+            City Explorer
+          </b>
+
+          <p>
+            Discovering the best and most popular
+            spots around the city.
+          </p>
+
+        </div>
+
+
+        <div class="ride">
+
+          <b>
+            Group Rides
+          </b>
+
+          <p>
+            Every Sunday, riding with the crew
+            and making memories.
+          </p>
+
+        </div>
+
+
+        <div class="ride">
+
+          <b>
+            Next Chapter
+          </b>
+
+          <p>
+            Long-distance rides are still on the
+            dream list — coming soon.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SOCIAL
+    ========================= -->
+
+    <section
+      id="social"
+      style="padding-top:55px"
+    >
+
+      <div class="section-head">
+
+        <div>
+
+          <div class="section-kicker">
+            04 / Connect
+          </div>
+
+          <h2>
+            Follow The Journey
+          </h2>
+
+        </div>
+
+        <p>
+          More rides, edits and motorcycle content
+          are waiting on social media.
+        </p>
+
+      </div>
+
+
+      <div class="social">
+
+        <a
+          class="social-card"
+          target="_blank"
+          rel="noopener"
+          href="https://www.youtube.com/@bikersonu25t"
+        >
+
+          <div>
+
+            <strong>
+              YouTube
+            </strong>
+
+            <small>
+              @bikersonu25t
+            </small>
+
+          </div>
+
+          <div class="arrow">
+            ↗
+          </div>
+
+        </a>
+
+
+        <a
+          class="social-card"
+          target="_blank"
+          rel="noopener"
+          href="https://www.instagram.com/biker_sonu_0k?stkn=dnE2YWhzdTdyY2dv"
+        >
+
+          <div>
+
+            <strong>
+              Instagram
+            </strong>
+
+            <small>
+              @biker_sonu_0k
+            </small>
+
+          </div>
+
+          <div class="arrow">
+            ↗
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <div class="redline"></div>
+
+  <footer>
+
+    <div>
+      © 2026 <b>BIKER SONU</b> • 25T RIDER
     </div>
-    <div class="social">
-      <a class="social-card" target="_blank" rel="noopener" href="https://www.youtube.com/@bikersonu25t">
-        <div><strong>YouTube</strong><small>@bikersonu25t</small></div><div class="arrow">↗</div>
-      </a>
-      <a class="social-card" target="_blank" rel="noopener" href="https://www.instagram.com/biker_sonu_0k?stkn=dnE2YWhzdTdyY2dv">
-        <div><strong>Instagram</strong><small>@biker_sonu_0k</small></div><div class="arrow">↗</div>
-      </a>
+
+    <div>
+      Built for the ride.
+      <b>Ride safe.</b>
     </div>
-  </section>
-</main>
 
-<div class="redline"></div>
-<footer>
-  <div>© 2026 <b>BIKER SONU</b> • 25T RIDER</div>
-  <div>Built for the ride. <b>Ride safe.</b></div>
-</footer>
+  </footer>
 
-<script>
-  const header = document.getElementById('header');
-  const menu = document.getElementById('menu');
-  const nav = document.getElementById('nav');
 
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 30);
-  });
-  menu.addEventListener('click', () => nav.classList.toggle('open'));
-  document.querySelectorAll('nav a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-</script>
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    const header =
+      document.getElementById('header');
+
+    const menu =
+      document.getElementById('menu');
+
+    const nav =
+      document.getElementById('nav');
+
+
+    /* Header background on scroll */
+
+    window.addEventListener('scroll', () => {
+
+      header.classList.toggle(
+        'scrolled',
+        window.scrollY > 30
+      );
+
+    });
+
+
+    /* Mobile menu */
+
+    menu.addEventListener('click', () => {
+
+      nav.classList.toggle('open');
+
+    });
+
+
+    /* Close mobile menu after clicking a link */
+
+    document
+      .querySelectorAll('nav a')
+      .forEach(a => {
+
+        a.addEventListener('click', () => {
+
+          nav.classList.remove('open');
+
+        });
+
+      });
+
+  </script>
+
 </body>
 </html>
